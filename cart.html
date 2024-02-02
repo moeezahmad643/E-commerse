@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>Cart</title>
+  <style>
+    #products {
+      justify-content: center;
+      background-color: rgb(225, 225, 225);
+
+      #empty-box {
+        display: grid;
+        place-items: center;
+        margin: 10px;
+        color: #ff5010;
+      }
+
+      .cart-item {
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90vw;
+        align-items: center;
+        gap: 0 20px;
+        margin: 10px;
+        padding: 10px;
+        justify-content: space-between;
+        /* background-color: aquamarine; */
+
+        & img {
+          width: 15vh;
+          /* background-color: rgb(127, 136, 255); */
+
+        }
+
+        .cart-text-box {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 20px;
+
+        }
+      }
+    }
+
+    #card div {
+      background-color: #ffffff;
+      border-radius: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      align-items: baseline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar"></nav>
+
+  <div id="card" class="card"></div>
+
+  <div id="products"></div>
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+
+
+  <script>
+    let buyProducts = JSON.parse(localStorage.getItem('buyProducts')) || [];
+    console.log(buyProducts)
+
+    if (buyProducts.length > 0) {
+
+
+      let heading = document.createElement('h2')
+      heading.innerHTML = 'Your Cart Items'
+      heading.setAttribute('style', 'color:#ff5010; margin:10px;')
+      document.getElementById('products').appendChild(heading)
+
+      for (let i = 0; i < buyProducts.length; i++) {
+        // console.log(buyProducts[i].Id + " , " + buyProducts[i].size + " , " + buyProducts[i].color )
+
+        let imgs = buyProducts[i].img.split('...')
+
+        let item = document.createElement('div')
+        item.setAttribute('class', 'cart-item')
+        // item.setAttribute('id',`${product.Id}`)
+        // item.addEventListener('click', () => {
+        //   showCard(buyProducts[i].Id)
+        // })
+
+        function showCard(id) {
+          window.location.href = `productspages/item/${id}`
+        }
+        item.innerHTML =
+          `
+          <img  src='${imgs[0]}' onclick="showCard(${buyProducts[i].Id})" >
+          <div class='cart-text-box'>
+            <h4>${buyProducts[i].title}</h4>
+            <p>${buyProducts[i].price * buyProducts[i].quantity}Rs</p>
+            <p>Quantity:${buyProducts[i].quantity}</p>
+            <p>Color: ${buyProducts[i].color}</p>
+            <p>Size:${buyProducts[i].size}</p>
+          </div>
+          <button class='btn-orange' onclick="deleteItem(${buyProducts[i].Id}, '${buyProducts[i].color}', '${buyProducts[i].size}')""> Delete</button>
+        `
+        document.getElementById('products').appendChild(item)
+
+      }
+
+
+      let tPrice = 0;
+      let tItem = 0;
+      for (let i = 0; i < buyProducts.length; i++) {
+        tPrice = tPrice + (buyProducts[i].price * buyProducts[i].quantity)
+        tItem = tItem + parseInt(buyProducts[i].quantity)
+      }
+
+      let checkBtn = document.createElement('div')
+      checkBtn.innerHTML = `
+      <p>Total Item: ${tItem}</p>
+      <p>Total Price: ${tPrice}</p>
+      <button class='btn-orange' onclick="window.location.href='/order'" >Check Out</button>
+      `
+      document.getElementById('card').appendChild(checkBtn)
+
+
+    } else {
+      document.getElementById('products').innerHTML = `
+      <div id='empty-box'>
+      <h2>No Items are in the Cart</h2><br><br>
+      <button onclick="window.location.href='/collection'" class='btn-orange '>Check Items</button>
+      </div>
+      `
+    }
+
+    function deleteItem(id, color, size) {
+      // Retrieve the array of products from local storage
+      let toDeleteProducts = JSON.parse(localStorage.getItem('buyProducts')) || [];
+
+      // Use the filter() method to create a new array excluding the item to delete
+      let updatedProducts = toDeleteProducts.filter((product) => {
+        return !(product.Id === id && product.color === color && product.size === size);
+      });
+
+      // Update the local storage with the new array
+      localStorage.setItem('buyProducts', JSON.stringify(updatedProducts));
+
+      window.location.reload()
+
+    }
+  </script>
+</body>
+
+</html>

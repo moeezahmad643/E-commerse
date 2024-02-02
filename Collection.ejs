@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>Collection Product Park</title>
+</head>
+
+<body>
+  <nav id="navbar"></nav>
+
+  <div id="card" class="card">
+
+  </div>
+
+  <div id="products"></div>
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+  <!-- <script src="Components/products.js"></script>-->
+
+  <script>
+    var products = <%- JSON.stringify(products) %>;
+    // products= JSON.parse(products)
+    // console.log(products);
+
+    // for (let i = 0; i < products.length; i++) {
+    for (let j = 0; j < 100; j++) {
+
+      var i = Math.floor(Math.random() * products.length)
+      let img = products[i].img.split('...')
+      // console.log(img);
+
+
+      let div = document.createElement("div")
+
+      div.setAttribute('class', 'product-box')
+      div.setAttribute('id', `box${i}`)
+
+      div.addEventListener('click', () => {
+        showCard(products[i].Id)
+      })
+
+      div.innerHTML = `
+
+            <div class='img-box'>
+              ${products[i].labal !== 0 ? `<span class='labal' style='font-size:xx-small;background-color:red;padding:2px 4px;color:white;border-radius:10px;'>${products[i].labal}% Off</span>` : ''}
+           <img src='${img[0]}' alt='${products[i].title}'>
+            </div>
+            <div class='text-box'>
+              <h6>${products[i].title}</h6>
+              <span>Rs: ${products[i].price}</span>
+          </div>
+
+                `
+
+      document.getElementById('products').appendChild(div)
+    }
+
+    function showCard(id) {
+      window.location.href = `productspages/item/${id}`
+    }
+  </script>
+</body>
+
+</html>

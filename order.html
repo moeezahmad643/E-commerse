@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>Order Product Park</title>
+  <style>
+    #adress {
+      color: #ff5010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      place-items: center;
+      width: 100%;
+
+      /* background-color: pink; */
+
+      & h3 {
+        margin: 10px;
+      }
+
+      & form {
+        width: 80%;
+        display: grid;
+        place-items: center;
+
+        /* background-color: rgb(161, 12, 37); */
+
+
+        & input,
+        select {
+          margin: 5px;
+          padding: 5px;
+          width: 80%;
+
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar"></nav>
+
+  <div id="oldadress" class="oldadress">
+
+  </div>
+
+  <div id="adress" class="adress">
+    <h3>Enter Your Adress</h3>
+    <form id="adress-form" method="POST">
+      <input required type="text" name="name" placeholder="Name...">
+      <input required type="number" name="phone" placeholder="Phone Number...">
+      <input type="number" name="otherphone" placeholder="Other Phone Number... (Optional)">
+      <input required type="text" name="adress" placeholder="Adress...">
+      <select name="province" id="">
+        <option value="Punjab" selected>Punjab</option>
+        <option value="Sindh">Sindh</option>
+        <option value="Balochistan">Balochistan</option>
+        <option value="K.P.K">K.P.K</option>
+        <option value="Azad Kashmir">Azad Kashmir</option>
+        <option value="Gilgit Baltistan">Gilgit Baltistan</option>
+        <option value="Islamabad">Islamabad</option>
+      </select>
+      <input required type="text" name="City" placeholder="City...">
+      <input required type="text" name="Area" placeholder="Area / Block Name...">
+      <input required type="text" name="Street" placeholder="Street...">
+      <input required type="text" name="Nearest" placeholder="Nearest Popular Place...">
+      <input required type="text" name="postalcode" placeholder="Postal Code...">
+
+
+
+      <input type="hidden" name="data" id="product-data">
+
+      <input class="btn-orange" type="submit">
+    </form>
+
+    <div style="color:red;" id="0data-box"></div>
+  </div>
+
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+  <script>
+    let dataa = JSON.parse(localStorage.getItem('buyProducts'))
+
+    let data = '';
+
+    
+
+    console.log(dataa)
+    for (let i = 0; i < dataa.length; i++) {
+      data = data + ' Product Number ' + dataa[i].Id + ' Quantity ' + dataa[i].quantity + ' Color ' + dataa[i].color + ' on ' + dataa[i].price * dataa[i].quantity + ' Rs ';
+    }
+
+    document.getElementById('product-data').value = data;
+
+
+
+    
+  </script>
+</body>
+
+</html>

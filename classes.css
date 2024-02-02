@@ -1,0 +1,59 @@
+.a {
+    text-decoration: none;
+}
+
+.a:hover {
+    font-weight: bold;
+}
+
+.btn-orange {
+    color: white;
+    background-color: #ff5010;
+    padding: 5px;
+    /* border: 1px solid white; */
+    border: 0;
+    border-radius: 5px;
+}
+
+.btn-orange:hover {
+    color: #ff5010;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ff5010;
+    border-radius: 5px;
+
+}
+
+.btn-outline {
+    color: #ff5010;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ff5010;
+    border-radius: 5px;
+
+}
+
+.btn-outline:hover {
+    color: white;
+    background-color: #ff5010;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.btn-rounded {
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+
+.nav-link {
+    color: white;
+}
+
+
+.text-primary {
+    --bs-text-opacity: 1;
+    --bs-primary-rgb: #ff5010;
+    color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+}

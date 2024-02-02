@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>About-Windoor Store</title>
+     <style>
+   table{
+    padding: 5px;
+   }
+   tr,td,th{
+        border: 0.5px solid black;
+    }
+    </style>
+  </head>
+
+  <body>
+  <center>
+    <h3 class='my-4'>Orders List</h3>
+  </center>
+
+
+
+    <table width="100%" border="1px" style='text-align:center;'>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Other Number</th>
+        <th>Address</th>
+        <th>Province</th>
+        <th>City</th>
+        <th>Area</th>
+        <th>Street</th>
+        <th>Nearest</th>
+        <th>Postal Code</th>
+        <th>Data</th>
+      </tr>
+
+      <% for(let i=0 ; i<products.length; i++){ %>
+
+      <tr>
+        <td><%- products[i].Id %></td>
+        <td><%- products[i].usermane %></td>
+        <td><%- products[i].phonenumber %></td>
+        <td><%- products[i].optionalphone %></td>
+        <td><%- products[i].adress %></td>
+        <td><%- products[i].provience %></td>
+        <td><%- products[i].city %></td>
+        <td><%- products[i].area %></td>
+        <td><%- products[i].street %></td>
+        <td><%- products[i].nearestplace %></td>
+        <td><%- products[i].postalcode %></td>
+        <td><%- products[i].data %></td>
+        <td>
+          <a href="/delete?id=<%- products[i].Id %>">Delete</a>
+        </td>
+      </tr>
+
+
+
+      <% } %>
+
+    </table>
+    <center>
+      <a href="/">
+        Add New Data
+      </a>
+    </center>
+  </body>
+
+ 
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+  <script>
+  let openkey = localStorage.getItem('openkey')|| 'hidden'
+    if (openkey == 'plzopenthispage') {
+      document.body.style.visibility = 'visible'
+      console.log('visible')
+
+    } else {
+      document.body.style.visibility = 'hidden'
+      console.log('hidden')
+    }
+    </script>
+
+</html>

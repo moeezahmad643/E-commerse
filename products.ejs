@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>About-Windoor Store</title>
+     <style>
+   table{
+    padding: 5px;
+   }
+   tr,td,th{
+        border: 0.5px solid black;
+    }
+    </style>
+  </head>
+
+
+<body>
+
+  <table border="1px" style='text-align:center; width: 100vw;'>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Decs</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Color</th>
+      <th>labal</th>
+      <th>Action</th>
+      <th class="img">Img</th>
+    </tr>
+
+    <% for(let i=0 ; i < products.length; i++){  %>
+
+    <tr>
+      <td><%- products[i].Id %></td>
+      <td><%- products[i].title %></td>
+      <td><%- products[i].decs %></td>
+      <td><%- products[i].type %></td>
+      <td><%- products[i].size %></td>
+      <td><%- products[i].price %></td>
+      <td><%- products[i].color %></td>
+      <td><%- products[i].labal %></td>
+      <td>
+        <a href="/delete-products?id=<%- products[i].Id %>">Delete</a>
+        &nbsp;
+        &nbsp;
+        <a href="/update?id=<%- products[i].Id %>">Upgrate</a>
+      </td>
+      <td class="img"><%- products[i].img %></td>
+    </tr>
+
+    <% } %>
+
+  </table>
+  <center>
+    <a href="/">
+      Add New Data
+    </a>
+  </center>
+
+
+
+  <script>
+    let openkey = localStorage.getItem('openkey') || 'hidden'
+    if (openkey == 'plzopenthispage') {
+      document.body.style.visibility = 'visible'
+      console.log('visible')
+
+    } else {
+      document.body.style.visibility = 'hidden'
+      console.log('hidden')
+    }
+  </script>
+</body>
+
+</html>

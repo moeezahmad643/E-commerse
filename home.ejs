@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>Product Park</title>
+</head>
+
+<body>
+
+  <nav id="navbar"></nav>
+  <header id="header">
+    <div class="box">
+      <h2>Buy Now</h2>
+      <p>Buy Your Product From the Product Park.</p>
+      <!-- <center> -->
+      <a href="/collection" class="a">
+        <button class="btn-orange" style="padding: 15px; font-weight: bold; letter-spacing: 2px;">Check
+          Collection</button>
+      </a>
+      <!-- </center> -->
+    </div>
+
+  </header>
+
+  <br><br><br><br><br>
+
+  <div class="icons">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+      </svg>
+      <p>Fast Delivery</p>
+    </div>
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+      </svg>
+      <p>Varified Store</p>
+    </div>
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+      </svg>
+      <p>24h Sercivce</p>
+    </div>
+  </div>
+
+
+  <div class="item-box">
+
+    <div class="boxes" onclick="window.location.href='/collection?category=accessories'">
+      <h6>Accessories</h6>
+      <img src="https://static-01.daraz.pk/p/6480774c7c7c505b827df905994825d4.jpg" alt="">
+    </div>
+
+    <div class="boxes" onclick="window.location.href='/collection?category=speakers'">
+      <h6>Speakers</h6>
+      <img src="https://static-01.daraz.pk/p/22015ca79c514b3ea8027df4d70de934.jpg" alt="">
+    </div>
+
+    <div class="boxes" onclick="window.location.href='/collection?category=headset'">
+      <h6>Headset</h6>
+      <img src="https://static-01.daraz.pk/p/adeb340d09ce5dad570e3f4efc157989.jpg" alt="">
+    </div>
+
+    <div class="boxes" onclick="window.location.href='/collection?category=decoration'">
+      <h6>Decoration</h6>
+      <img src="https://static-01.daraz.pk/p/423039af9ff5ac9ef81b9b75b9b03b20.jpg" alt="">
+    </div>
+
+    <div class="boxes" onclick="window.location.href='/collection?category=light'">
+      <h6>Light</h6>
+      <img src="https://static-01.daraz.pk/p/64613bbb969a90609fb8002dfb66a4c5.jpg" alt="">
+    </div>
+
+    <div class="boxes" onclick="window.location.href='/collection?category=kitchen'">
+      <h6>Kitchen</h6>
+      <img src="https://static-01.daraz.pk/p/5d3c2260707d3308dbdf83ff950c4158.jpg" alt="">
+    </div>
+
+  </div>
+  <div id="products"></div>
+
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+  <script>
+    var products = <%- JSON.stringify(products) %>;
+  </script>
+  <!-- <script defer src="related.js"></script> -->
+  <script defer src="productspages/related.js"></script>
+  <script>
+     function showCard(id) {
+      window.location.href = `/productspages/item/${id}`
+    }
+
+  </script>
+
+
+</body>
+
+</html>

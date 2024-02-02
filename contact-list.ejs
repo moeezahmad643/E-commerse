@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./classes.css">
+  <title>About-Windoor Store</title>
+  <style>
+    
+    table {
+      font-size: small;
+    }
+
+    tr,
+    td,
+    th {
+      border: 0.5px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar"></nav>
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <center>
+      <h3 class='my-4'>Orders List</h3>
+    </center>
+
+
+
+    <table width="100%" border="1px" style='text-align:center;'>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Title</th>
+        <th>Problem</th>
+        <th>Options</th>
+      </tr>
+
+      <% for(let i=0 ; i < contact.length; i++){  %>
+
+      <tr>
+        <td><%- contact[i].Id %></td>
+        <td><%- contact[i].name %></td>
+        <td><%- contact[i].phonenumber %></td>
+        <td><%- contact[i].email %></td>
+        <td><%- contact[i].title %></td>
+        <td><%- contact[i].problem %></td>
+        <td>
+          <a href="/delete-contact?id=<%- contact[i].Id %>">Delete</a>
+        </td>
+      </tr>
+
+
+
+      <% } %>
+
+    </table>
+    <center>
+      <a href="/">
+        Add New Data
+      </a>
+    </center>
+  </body>
+
+  </html>
+
+  <footer id="footer"></footer>
+  <script src="Components/navbar.js"></script>
+  <script src="Components/footer.js"></script>
+  <script>
+    let openkey = localStorage.getItem('openkey') || 'hidden'
+    if (openkey == 'plzopenthispage') {
+      document.body.style.visibility = 'visible'
+      console.log('visible')
+
+    } else {
+      document.body.style.visibility = 'hidden'
+      console.log('hidden')
+    }
+  </script>
+</body>
+
+</html>
